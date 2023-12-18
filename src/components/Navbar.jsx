@@ -2,7 +2,7 @@ import React from "react";
 import logoOne from "/logoOne.gif";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({setSearchedBook}) {
   return (
     <nav className="py-4 2xl:px-6">
       <div className="container flex items-center justify-between">
@@ -41,6 +41,7 @@ export default function Navbar() {
               placeholder="Filter books..."
               className="search"
               id="lws-search"
+              onChange={(e) => { setSearchedBook(e.target.value) }}
             />
           </div>
         </form>

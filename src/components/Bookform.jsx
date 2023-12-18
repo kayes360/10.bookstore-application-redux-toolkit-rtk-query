@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import { useAddBookMutation } from "../features/api/apiSlice";
-
-export default function Bookform() {
+import React, { useEffect, useState } from "react";
+import { useAddBookMutation, useEditBookMutation, useGetBookQuery } from "../features/api/apiSlice";
+import { useNavigate, useParams } from 'react-router-dom';
+export default function Bookform({formName}) {
+    
+  const [isEditing, setIsEditing] = useState(false) 
+  let navigate = useNavigate(); 
+  const [bookId, setBookId] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     author: "",
@@ -11,7 +15,8 @@ export default function Bookform() {
     featured: "",
   });
 
-  const [addVideo, {isLoading, isError, isSuccess} ] = useAddBookMutation()
+  const [addVideo, {isLoading, isError, isSuccess} ] = useAddBookMutation() 
+   
   const handleChange = (e) => {
     const { name, value } = e.target; 
     setFormData((prevState) => ({
@@ -20,11 +25,14 @@ export default function Bookform() {
     }));
   };
    
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addVideo(formData)
-    console.log(formData);
+    if (formName === 'Add') {
+      addVideo(formData);
+      navigate("/");
+    } 
   };
 
   return (
@@ -37,7 +45,7 @@ export default function Bookform() {
           className="text-input"
           type="text"
           id="lws-bookName"
-          name="name"
+          name="name" 
           onChange={handleChange}
         />
       </div>
@@ -109,7 +117,7 @@ export default function Bookform() {
       </div>
 
       <button type="submit" className="submit" id="lws-submit">
-        Edit Book
+        {formName} Book
       </button>
     </form>
   );

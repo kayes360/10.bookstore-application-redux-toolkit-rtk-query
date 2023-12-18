@@ -6,9 +6,9 @@ export default function Card({ book }) {
   const { id, name, author, thumbnail, price, rating, featured } = book;
 
 
- const [deleteBook] =  useDeleteBooksMutation()
-  const handleDelete = ()=> {
-    console.log("delete id", id)
+ const [deleteBook] = useDeleteBooksMutation()
+ 
+  const handleDelete = ()=> { 
     deleteBook(id)
   }
   return (
@@ -28,7 +28,7 @@ export default function Card({ book }) {
             }
 
             <div className="text-gray-500 space-x-2">
-              <Link to="/editbook/1">
+              <Link to={`/editbook/${id}`}>
                 <button className="lws-edit ">
                   <svg
                     fill="none"

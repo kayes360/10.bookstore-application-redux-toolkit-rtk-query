@@ -6,7 +6,7 @@
       "thumbnail": "https://m.media-amazon.com/images/I/51Ga5GuElyL._SX331_BO1,204,203,200_.jpg",
       "price": 14,
       "rating": 3,
-      "featured": false,
+      "featured": "on",
       "id": 1
     },
     {
@@ -15,7 +15,7 @@
       "thumbnail": "https://m.media-amazon.com/images/P/1501171348.01._SCLZZZZZZZ_SX500_.jpg",
       "price": 13.99,
       "rating": 4,
-      "featured": false,
+      "featured": "on",
       "id": 2
     },
     {
@@ -28,13 +28,31 @@
       "id": 4
     },
     {
-      "name": "Wendy Moran",
-      "author": "Qui expedita distinc",
-      "thumbnail": "Consequat Qui non q",
-      "price": "50",
-      "rating": "3",
-      "featured": "on",
+      "name": "Patience Bradley",
+      "author": "Qui nihil consequatu",
+      "thumbnail": "Blanditiis aliquip r",
+      "price": "414",
+      "rating": "2",
+      "featured": "",
       "id": 5
+    },
+    {
+      "name": "Flynn Estrada",
+      "author": "Nam aut praesentium ",
+      "thumbnail": "Rerum deserunt volup",
+      "price": "369",
+      "rating": "3",
+      "featured": "",
+      "id": 6
+    },
+    {
+      "name": "Blake Hood",
+      "author": "Labore in et in ut e",
+      "thumbnail": "Minim facere volupta",
+      "price": "432",
+      "rating": "1",
+      "featured": "",
+      "id": 7
     }
   ]
 }

@@ -10,41 +10,60 @@ export const apiSlice = createApi({
 
   endpoints: (builder) => ({
 
-    //READ API 
+    //READ API
     getBooks: builder.query({
       query: () => "/books",
       keepUnusedDataFor: 600,
       providesTags: ["Books"],
     }),
 
+    //READ Single API
+    getBook: builder.query({
+      query: (id) => `/books/${id}`,
+      keepUnusedDataFor: 600,
+      providesTags: ["Books"],
+    }),
+
     //CREATE API
     addBook: builder.mutation({
-        query: (formData) => ({
-          url: `/books`,
-          method: "POST",
-          body: formData,
-        }),
-  
-        invalidatesTags: ["Books"],
+      query: (formData) => ({
+        url: `/books`,
+        method: "POST",
+        body: formData,
       }),
 
+      invalidatesTags: ["Books"],
+    }),
 
+    //EDIT API
+    editBook: builder.mutation({
+      query: ({ id, formData }) => ({
+        url: `/books/${id}`,
+        method: "PUT",
+        body: formData,
+      }),
+
+      invalidatesTags: ["Books"],
+    }),
 
     //DELETE API
     deleteBooks: builder.mutation({
       query: (id) => ({
         url: `/books/${id}`,
-        method: "DELETE", 
+        method: "DELETE",
       }),
       invalidatesTags: (result, error, arg) => [
         "Books",
         { type: "Books", id: arg.id },
       ],
     }),
-
-
-
   }),
 });
 
-export const { useGetBooksQuery, useAddBookMutation ,useDeleteBooksMutation } = apiSlice;
+export const {
+  useGetBooksQuery,
+  useGetBookQuery,
+  useAddBookMutation,
+  useEditBookMutation,
+  useDeleteBooksMutation,
+} = apiSlice;
