@@ -28,19 +28,18 @@ export default function Bookform() {
         author: book.author,
         thumbnail: book.thumbnail,
         price: book.price,
-        rating: book.rating,
-        featured: book.featured,
+        rating: book.rating, 
+        featured: book.featured === true,
       });
     }
   }, [isLoading, isError]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target; 
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
-     
   };
 
   const handleSubmit = (e) => {
@@ -135,7 +134,7 @@ export default function Bookform() {
             {" "}
             This is a featured book{" "}
           </label>
-        </div>
+        </div>  
 
         <button type="submit" className="submit" id="lws-submit">
           Edit Book

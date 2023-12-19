@@ -5,7 +5,7 @@ export default function Bookform({formName}) {
     
   const [isEditing, setIsEditing] = useState(false) 
   let navigate = useNavigate(); 
-  const [bookId, setBookId] = useState(null);
+  const [bookId, setBookId] = useState(null); 
   const [formData, setFormData] = useState({
     name: "",
     author: "",
@@ -18,17 +18,17 @@ export default function Bookform({formName}) {
   const [addVideo, {isLoading, isError, isSuccess} ] = useAddBookMutation() 
    
   const handleChange = (e) => {
-    const { name, value } = e.target; 
+    const { name, value, type, checked } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
    
   
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     if (formName === 'Add') {
       addVideo(formData);
       navigate("/");
@@ -107,7 +107,7 @@ export default function Bookform({formName}) {
           id="lws-featured"
           type="checkbox"
           name="featured"
-          className="w-4 h-4"
+          className="w-4 h-4" 
           onChange={handleChange}
         />
         <label htmlFor="lws-featured" className="ml-2 text-sm">

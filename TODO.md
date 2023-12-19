@@ -6,14 +6,14 @@ Project Description
 
 ### Todo
 
-- [ ] featured true/false, on/off, "" bug  
-- [ ] edit checkbox bug  
 
 ### In Progress
 
 
 ### Done ✓
 
+- [x] edit checkbox bug  
+- [x] featured true/false, on/off, "" bug  
 - [x] 4.book list can be filtered by 'all' and 'featured' from client side  
 - [x] 5.book list can be searched from search box  
 - [x] 8.after editing the book page will be redirect to home page  
